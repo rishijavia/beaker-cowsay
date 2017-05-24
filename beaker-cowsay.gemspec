@@ -1,13 +1,13 @@
 # -*- encoding: utf-8 -*-
 $LOAD_PATH.unshift File.expand_path("../lib", __FILE__)
-require 'beaker-template/version'
+require 'beaker-cowsay/version'
 
 Gem::Specification.new do |s|
-  s.name        = "beaker-template"
-  s.version     = Beaker::DSL::Template::Version::STRING
-  s.authors     = ["Puppetlabs"]
+  s.name        = "beaker-cowsay"
+  s.version     = Beaker::DSL::Cowsay::Version::STRING
+  s.authors     = ["Puppetlabs", "rishijavia"]
   s.email       = ["qe-team@puppetlabs.com"]
-  s.homepage    = "https://github.com/puppetlabs/beaker-template"
+  s.homepage    = "https://github.com/puppetlabs/beaker-cowsay"
   s.summary     = %q{Beaker DSL Extension Helpers!}
   s.description = %q{For use for the Beaker acceptance testing tool}
   s.license     = 'Apache2'
@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rake', '~> 10.1'
   s.add_development_dependency 'simplecov'
   s.add_development_dependency 'pry', '~> 0.10'
+  s.add_development_dependency 'beaker', '~> 3.0'
 
   # Documentation dependencies
   s.add_development_dependency 'yard'

@@ -1,9 +1,9 @@
 module Beaker
   module DSL
-    module Template
+    module Cowsay
 
       module Version
-        STRING = '0.0.1rc0'
+        STRING = '0.0.1'
       end
 
     end
