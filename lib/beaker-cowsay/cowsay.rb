@@ -5,8 +5,9 @@ module Beaker
       # Runs cowsay command on a host
       def cowsay(host, quote)
 
-        # Convert quote to string
-        quote = quote.to_s
+        unless quote.is_a?(String)
+          raise ArgumentError.new("The quote should be a string")
+        end
 
         # Make cowsay command
         quote = 'cowsay ' + quote

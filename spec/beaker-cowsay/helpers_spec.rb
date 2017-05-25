@@ -29,44 +29,43 @@ describe ClassMixedWithDSLHelpers do
     make_hosts({:platform => platform })
   end
 
+  let(:platform) {Beaker::Platform.new('ubuntu-1604-x86_64')}
+
   # Tests cowsay on different hosts
   describe '#cowsay' do
 
-    context 'on ubuntu' do
-      let(:platform) {Beaker::Platform.new('ubuntu-1604-x86_64')}
-
-      it 'it calls on' do
-        hosts.each do |host|
-          expect(subject).to receive(:on)
-          subject.cowsay(host, "hello")
-        end
+    it 'calls on method from beaker DSL' do
+      hosts.each do |host|
+        expect(subject).to receive(:on)
+        subject.cowsay(host, "hello")
       end
+    end
 
+    it 'raises argumenterror when string not provided' do
+      hosts.each do |host|
+        expect {subject.cowsay(host, 2211)}.to raise_error(ArgumentError)
+        expect {subject.cowsay(host, false)}.to raise_error(ArgumentError)
+      end
     end
 
   end
 
   describe '#install_cowsay_on' do
 
-    context 'on ubuntu' do
-      let(:platform) {Beaker::Platform.new('ubuntu-1604-x86_64')}
-
-      it 'does not call install_package' do
-        hosts.each do |host|
-          expect(subject).to_not receive(:install_package)
-          expect(subject).to receive(:check_for_package) {true}
-          subject.install_cowsay_on(host)
-        end
+    it 'does not call install_package' do
+      hosts.each do |host|
+        expect(subject).to_not receive(:install_package)
+        expect(subject).to receive(:check_for_package) {true}
+        subject.install_cowsay_on(host)
       end
+    end
 
-      it 'calls install_package' do
-        hosts.each do |host|
-          expect(subject).to receive(:install_package)
-          expect(subject).to receive(:check_for_package) {false}
-          subject.install_cowsay_on(host)
-        end
+    it 'calls install_package' do
+      hosts.each do |host|
+        expect(subject).to receive(:install_package)
+        expect(subject).to receive(:check_for_package) {false}
+        subject.install_cowsay_on(host)
       end
-
     end
 
   end

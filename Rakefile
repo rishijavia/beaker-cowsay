@@ -28,6 +28,7 @@ A quick acceptance test, named because it has no pre-suites to run
 
       sh("beaker",
          "--hosts", ENV['CONFIG'] || "acceptance/config/nodes/vagrant-ubuntu-1404.yml",
+         "--pre-suite", "acceptance/config/pre_suite/install.rb",
          "--tests", "acceptance/tests",
          "--log-level", "debug",
          "--keyfile", ENV['KEY'] || "#{ENV['HOME']}/.ssh/id_rsa")
