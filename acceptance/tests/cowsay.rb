@@ -5,9 +5,9 @@ confine :to, :platform => 'ubuntu'
 # need to count characters of input to make -- and __ to wrap the quote
 
 def test_cow(quote)
-  " _____________________
+  " #{"_" * (quote.length + 2)}
 < #{quote} >
- ---------------------
+ #{"-" * (quote.length + 2)}
         \\   ^__^
          \\  (oo)\\_______
             (__)\\       )\\/\\
