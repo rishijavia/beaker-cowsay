@@ -20,15 +20,15 @@ end
 test_name 'test cowsay' do
 
   hosts.each do |host|
-     assert_equal(test_cow("i can moo, can you?"), cowsay(host, "i can moo, can you?").stdout)
+     assert_equal(test_cow("i can moo, can you?"), cowsay(host, "i can moo, can you?"))
   end
 
   hosts.each do |host|
-    assert_equal(test_cow("i clean my input n check it out"), cowsay(host, "i clean my input \\n check it out").stdout)
+    assert_equal(test_cow("i clean my input n check it out"), cowsay(host, "i clean my input \\n check it out"))
   end
 
   hosts.each do |host|
-    assert_equal(test_cow("i can escape 'characters'"), cowsay(host, "i can escape \\'characters\\'").stdout)
+    assert_equal(test_cow("i can escape 'characters'"), cowsay(host, "i can escape \\'characters\\'"))
   end
 
 end
