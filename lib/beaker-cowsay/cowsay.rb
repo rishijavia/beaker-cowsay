@@ -12,10 +12,8 @@ module Beaker
         # Make cowsay command
         quote = 'cowsay ' + quote
 
-        # Install cowsay and run the cowsay command
-        on(host, quote) do |result|
-          return result.stdout
-        end
+        # Run cowsay on host
+        on(host, quote)
       end
 
       # Installs cowsay on host unless it's is installed
